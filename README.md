@@ -52,6 +52,7 @@ at any time and it will return the values.
 
 ## Future ideas
 The model is not perfect and can use improvement. For example, doing more training with a further selection of images would help.
+Data augmentation techniques could be used (they were not applied yet because of a HDD limitation on the Saturn Cloud I was using, added to the time limit).
 Also - this was only tested using the Xception Keras application; it's very likely there is at least one better model to start from (VGG19 or ResNet50 are sample candidates), so a next step could be to switch to one of these and get results.
 
 
