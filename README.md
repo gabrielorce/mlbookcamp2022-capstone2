@@ -27,7 +27,14 @@ The "electronics_test.ipynb" notebook allows testing the selected model locally.
 ## Model Deployment
 The deployment is done using a container and setting up AWS lambda function and API gateway, which were correctly set up.
 The model is created using Tensorflow; but for deployment, we will use tensorflow-lite. Therefore the model created in the previous step needs to be converted from the h5 format to the tflite format. 
-Once we have the new, lighter model, we create the container that will host 
+Once we have the new, lighter model, we create the container that will include the necessary files.
+The Dockerfile contains details of what is included. To build this dockerfile, execute the following command:
+docker build -t electronics-components-model .
+
+you can run it locally using this command:
+> docker run -it --rm -p 8080:8080 electronics-components-model:latest
+
+But ultimately, we actually upload the docker container when creating the AWS Lambda function and use it from within. The course states how to create this Lambda function in AWS via command line, but in my case I did everything through the graphical interface provided by AWS.
 
 ## Testing the model
 The application can be tested using the test.py file. It contains a call to the lambda function giving as input a URL of an image. Once executed it will return the component labels as well as the probability that what is shown in the image is one of them.
