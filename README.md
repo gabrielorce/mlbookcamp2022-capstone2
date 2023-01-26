@@ -31,7 +31,8 @@ The "electronics_test.ipynb" notebook allows testing the selected model locally.
 
 ## Model Deployment
 The deployment is done using a container and setting up AWS lambda function and API gateway, which were correctly set up.
-The model is created using Tensorflow; but for deployment, we will use tensorflow-lite. Therefore the model created in the previous step needs to be converted from the h5 format to the tflite format. 
+The model is created using Tensorflow; but for deployment, we will use tensorflow-lite. Therefore the model created in the previous step needs to be converted from the h5 format to the tflite format. This was achieved using the "convert.py" file, which is the one provided inthe course (only modification: The name of the file to convert).
+
 Once we have the new, lighter model, we create the container that will include the necessary files.
 The Dockerfile contains details of what is included. To build this dockerfile, execute the following command:
 docker build -t electronics-components-model .
