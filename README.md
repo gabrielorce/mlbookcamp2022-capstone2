@@ -1,6 +1,11 @@
-# ML Zoomcamp - Capstone Project
+# Multiclass Image detection: Electronics Components
 
-Below is a description for the 2nd capstone project for the Machine Learning Zookcamp - 2022 cohort. The course can be found here: https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/course-zoomcamp/cohorts/2022
+## ML Zoomcamp - Capstone Project
+
+
+Below is a description for the 2nd capstone project for the Machine Learning Zookcamp - 2022 cohort. The project consists of a Multiclass Image detection for Electronics Components.
+
+The course can be found here: https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/course-zoomcamp/cohorts/2022
 
 ## Problem Description and proposed solution:
 The idea for this system is to be able to identify if any specific electronic components appear in an image. These components are:
