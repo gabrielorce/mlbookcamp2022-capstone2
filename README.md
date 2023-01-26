@@ -43,8 +43,12 @@ you can run it locally using this command:
 But ultimately, we actually upload the docker container when creating the AWS Lambda function and use it from within. The course states how to create this Lambda function in AWS via command line, but in my case I did everything through the graphical interface provided by AWS.
 
 ## Testing the model
-The application can be tested using the test.py file. It contains a call to the lambda function giving as input a URL of an image. Once executed it will return the component labels as well as the probability that what is shown in the image is one of them.
-Some sample URLs have been placed in that file; they have been commented out, feel free to use them as wanted.
+The application can be tested using the test.py file. It contains a call to the AWS lambda function giving as input a URL of an image. Once executed it will return the component labels as well as the probability that what is shown in the image is one of them. Some sample URLs have been placed in that file; they have been commented out, feel free to use them as wanted.
+NOTE: There is no need to run notebooks or build anything for testing, since test.py acts on the AWS Lambda function that was already deployed. You can simply run
+
+> python test.py
+
+at any time and it will return the values.
 
 ## Future ideas
 The model is not perfect and can use improvement. For example, doing more training with a further selection of images would help.
