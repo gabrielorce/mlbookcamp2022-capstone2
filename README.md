@@ -31,10 +31,10 @@ The "electronics_test.ipynb" notebook allows testing the selected model locally.
 
 ## Model Deployment
 The deployment is done using a container and setting up AWS lambda function and API gateway, which were correctly set up.
-The model is created using Tensorflow; but for deployment, we will use tensorflow-lite. Therefore the model created in the previous step needs to be converted from the h5 format to the tflite format. This was achieved using the "convert.py" file, which is the one provided inthe course (only modification: The name of the file to convert).
+The model is created using Tensorflow; but for deployment, we will use tensorflow-lite. Therefore the model created in the previous step needs to be converted from the h5 format to the tflite format. This was achieved using the "convert.py" file, which is the one provided inthe course (only modification: The name of the file to convert). Both the original h5 as well as the converted tflite model are available in this repository (NOTE: It is a better practice to store these as artifacts in an artifact repository or equivalent, since they are large binary files and not really suitable for code versioning system like git).
 
 Once we have the new, lighter model, we create the container that will include the necessary files.
-The Dockerfile contains details of what is included. To build this dockerfile, execute the following command:
+The Dockerfile contains details of what is included (this includes the tflite model). To build this dockerfile, execute the following command:
 docker build -t electronics-components-model .
 
 you can run it locally using this command:
@@ -42,7 +42,7 @@ you can run it locally using this command:
 
 But ultimately, we actually upload the docker container when creating the AWS Lambda function and use it from within. The course states how to create this Lambda function in AWS via command line, but in my case I did everything through the graphical interface provided by AWS.
 
-## Testing the model
+## Testing the deployed model
 The application can be tested using the test.py file. It contains a call to the AWS lambda function giving as input a URL of an image. Once executed it will return the component labels as well as the probability that what is shown in the image is one of them. Some sample URLs have been placed in that file; they have been commented out, feel free to use them as wanted.
 NOTE: There is no need to run notebooks or build anything for testing, since test.py acts on the AWS Lambda function that was already deployed. You can simply run
 
@@ -52,7 +52,9 @@ at any time and it will return the values.
 
 ## Future ideas
 The model is not perfect and can use improvement. For example, doing more training with a further selection of images would help.
+
 Data augmentation techniques could be used (they were not applied yet because of a HDD limitation on the Saturn Cloud I was using, added to the time limit).
+
 Also - this was only tested using the Xception Keras application; it's very likely there is at least one better model to start from (VGG19 or ResNet50 are sample candidates), so a next step could be to switch to one of these and get results.
 
 
